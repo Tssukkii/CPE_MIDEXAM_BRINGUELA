@@ -1,0 +1,15 @@
+---
+- name: Install InfluxDB
+  block:
+    - name: Install InfluxDB on CentOS
+      when: ansible_os_family == "RedHat"
+      ansible.builtin.yum:
+        name: "influxdb-{{ influxdb_version }}"
+        state: present
+
+    - name: Install InfluxDB on Ubuntu
+      when: ansible_os_family == "Debian"
+      ansible.builtin.apt:
+        name: "influxdb"
+        state: present
+        update_cache: yes

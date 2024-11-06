@@ -1,0 +1,8 @@
+---
+  - name: Install MariaDB
+    block:
+      - name: Install MariaDB on CentOS
+        when: ansible_os_family == "RedHat"
+        ansible.builtin.yum:
+          name: "mariadb-server"
+          state: present

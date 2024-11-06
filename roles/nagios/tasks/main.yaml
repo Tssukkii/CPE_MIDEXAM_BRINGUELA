@@ -1,0 +1,8 @@
+---
+- name: Install Nagios
+  block:
+    - name: Install Nagios on CentOS
+      when: ansible_os_family == "RedHat"
+      ansible.builtin.yum:
+        name: "nagios-{{ nagios_version }}"
+        state: present

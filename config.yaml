@@ -1,0 +1,30 @@
+elasticsearch:
+  version: "8.15"
+  repo_url: "https://artifacts.elastic.co/packages/8.15/yum"
+  install_path: "/etc/elasticsearch"
+
+kibana:
+  version: "8.15"
+  install_path: "/etc/kibana"
+
+logstash:
+  version: "8.15"
+  install_path: "/etc/logstash"
+
+nagios:
+  version: "latest"
+
+grafana:
+  version: "latest"
+
+prometheus:
+  version: "latest"
+
+influxdb:
+  version: "latest"
+
+lamp:
+  httpd_php:
+    version: "latest"
+  mariadb:
+    version: "latest"

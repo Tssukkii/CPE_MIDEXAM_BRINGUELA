@@ -1,0 +1,10 @@
+---
+  - name: Install Apache and PHP
+    block:
+      - name: Install Apache and PHP on CentOS
+        when: ansible_os_family == "RedHat"
+        ansible.builtin.yum:
+          name:
+            - httpd
+            - php
+          state: present

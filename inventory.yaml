@@ -1,0 +1,38 @@
+all:
+  children:
+    elasticsearch:
+      hosts:
+        192.168.56.114
+        192.168.56.117
+    kibana:
+      hosts:
+        192.168.56.114
+        192.168.56.117
+    logstash:
+      hosts:
+        192.168.56.114
+        192.168.56.117
+    nagios:
+      hosts:
+        192.168.56.114
+    grafana:
+      hosts:
+        192.168.56.114
+        192.168.56.117
+    prometheus:
+      hosts:
+        192.168.56.114
+    httpd_php:
+      hosts:
+        192.168.56.114
+        192.168.56.117
+    mariadb:
+      hosts:
+        192.168.56.114
+        192.168.56.117
+
+
+
+
+
+

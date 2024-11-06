@@ -1,0 +1,30 @@
+---
+  - name: Install LAMP stack
+    hosts: httpd_php:mariadb
+    roles:
+      - { role: httpd_php, when: "'httpd_php' in group_names" }
+      - { role: mariadb, when: "'mariadb' in group_names" }
+      
+  - name: Install Grafana, Prometheus, and InfluxDB
+    hosts: grafana:prometheus:influxdb
+    roles:
+      - { role: grafana, when: "'grafana' in group_names" }
+      - { role: prometheus, when: "'prometheus' in group_names" }
+      - { role: influxdb, when: "'influxdb' in group_names" }
+
+  - name: Install and configure Elastic Stack
+    hosts: elasticsearch:kibana:logstash
+    roles:
+      - { role: elasticsearch, when: "'elasticsearch' in group_names" }
+      - { role: kibana, when: "'kibana' in group_names" }
+      - { role: logstash, when: "'logstash' in group_names" }
+
+ 
+  - name: Install Nagios
+    hosts: nagios
+    roles:
+      - nagios
+
+
+
+

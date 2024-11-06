@@ -1,0 +1,22 @@
+---
+ - name: Install Elasticsearch
+   block:
+     - name: Install Elasticsearch on CentOS
+       when: ansible_os_family == "RedHat"
+       ansible.builtin.yum:
+         
+         name: "elasticsearch-{{ elasticsearch_version }}"
+         state: present
+
+     - name: Install Elasticsearch on Ubuntu
+       when: ansible_os_family == "Debian"
+       ansible.builtin.apt:
+         name: "elasticsearch={{ elasticsearch_version }}"
+         state: present
+         update_cache: yes
+
+ - name: Configure Elasticsearch
+   ansible.builtin.template:
+     src: elasticsearch.yml.j2
+     dest: "/etc/elasticsearch/elasticsearch.yml"
+ 

@@ -1,0 +1,20 @@
+---
+- name: Install Kibana
+  block:
+    - name: Install Kibana on CentOS
+      when: ansible_os_family == "RedHat"
+      ansible.builtin.yum:
+        name: "kibana-{{ kibana_version }}"
+        state: present
+
+    - name: Install Kibana on Ubuntu
+      when: ansible_os_family == "Debian"
+      ansible.builtin.apt:
+        name: "kibana={{ kibana_version }}"
+        state: present
+        update_cache: yes
+
+- name: Configure Kibana
+  ansible.builtin.template:
+    src: kibana.yml.j2
+    dest: "/etc/kibana/kibana.yml"
